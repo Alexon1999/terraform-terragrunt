@@ -18,6 +18,9 @@ tflocal is a small wrapper script to run Terraform against LocalStack. tflocal s
   - localstack start
 - awscli
   - brew install awscli
+  -   export AWS_ACCESS_KEY_ID="test"
+      export AWS_SECRET_ACCESS_KEY="test"
+      export AWS_DEFAULT_REGION="us-east-1"
   - aws s3 mb s3://tfstate --endpoint-url=http://localhost.localstack.cloud:4566
 - terraform-local
   - pip install terraform-local

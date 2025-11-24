@@ -10,9 +10,6 @@ Aws cli to create initial bucket for terraform
 tflocal wrapper scriptSection titled “tflocal wrapper script”
 tflocal is a small wrapper script to run Terraform against LocalStack. tflocal script uses the Terraform Override mechanism and creates a temporary file localstack_providers_override.tf to configure the endpoints for the AWS provider section. The endpoints for all services are configured to point to the LocalStack API (http://localhost:4566 by default). It allows you to easily deploy your unmodified Terraform scripts against LocalStack.
 
-**Terragrunt**
-Terragrunt is an open-source wrapper for Terraform that provides extra tools for keeping your configurations DRY, working with multiple Terraform modules, and managing remote state. You can use Terragrunt with LocalStack to create and manage your AWS resources with your pre-existing Terraform configurations.
-
 - localstack
   - brew install localstack/tap/localstack-cli
   - localstack auth set-token XXXXXXXXXXXX

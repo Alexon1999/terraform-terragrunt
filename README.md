@@ -10,6 +10,10 @@ Aws cli to create initial bucket for terraform
 tflocal wrapper scriptSection titled “tflocal wrapper script”
 tflocal is a small wrapper script to run Terraform against LocalStack. tflocal script uses the Terraform Override mechanism and creates a temporary file localstack_providers_override.tf to configure the endpoints for the AWS provider section. The endpoints for all services are configured to point to the LocalStack API (http://localhost:4566 by default). It allows you to easily deploy your unmodified Terraform scripts against LocalStack.
 
+**Terragrunt**
+Terragrunt is an open-source wrapper for Terraform that provides extra tools for keeping your configurations DRY, working with multiple Terraform modules, and managing remote state. You can use Terragrunt with LocalStack to create and manage your AWS resources with your pre-existing Terraform configurations.
+this is an Orchestrator of terraform.
+
 - localstack
   - brew install localstack/tap/localstack-cli
   - localstack auth set-token XXXXXXXXXXXX
@@ -22,26 +26,38 @@ tflocal is a small wrapper script to run Terraform against LocalStack. tflocal s
   - aws s3 mb s3://tfstate --endpoint-url=http://localhost.localstack.cloud:4566
 - terraform-local
   - pip install terraform-local
-  - tflocal init/plan/apply
+  - tflocal init/plan/apply/destroy
+- terragrunt
+  - brew install terragrunt
+  - cd terragrunt
+  - terragrunt run --all init/plan/apply/destroy
+  - cd terragrunt/prod/ec2
+  - terragrunt init/plan/apply/destroy
 
 ## Project Structure
 
 ```
-project/
-│
-├── modules/
+terragrunt/
+├── root.hcl          # config globale (backend + provider LocalStack)
+├── dev/
+│   ├── env.hcl      # variables/dev locals + AWS keys dev (environnement specific)
 │   └── ec2/
-│       ├── main.tf
-│       ├── variables.tf
-│       └── outputs.tf
-│
-└── envs/
-    └── dev/
-        ├── main.tf
-        ├── providers.tf
-        ├── variables.tf
-        ├── terraform.tfvars
-        └── backend.tf
+│       └── terragrunt.hcl  # module EC2 + inputs
+├── staging/
+│   ├── terragrunt.hcl
+│   └── ec2/
+│       └── terragrunt.hcl
+└── prod/
+    ├── env.hcl
+    └── ec2/
+        └── terragrunt.hcl
+
+terraform/
+└── ec2/
+    ├── main.tf
+    ├── variables.tf
+    └── outputs.tf
+
 
 ```
 

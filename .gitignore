@@ -1,0 +1,52 @@
+# Local .terraform directories
+**/.terraform/*
+*.tfstate
+*.tfstate.backup
+*.lock.hcl
+# Crash log files
+crash.log
+# Exclude override files as they are usually local configuration
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+# Ignore tfplan files
+*.tfplan
+# Ignore Python virtual environment directories
+venv/
+.env/
+__pycache__/
+*.pyc
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.iml
+# Ignore MacOS specific files
+.DS_Store
+# Ignore log files
+*.log
+# Ignore backup files
+*~
+# Ignore LocalStack files
+.localstack/*
+.localstack
+# Ignore Terragrunt files
+.terragrunt-cache/
+.terragrunt-cache
+# Ignore Terraform Local files
+.terraform-local/
+.terraform-local
+.terraform-local/*
+# Ignore Python pipenv files
+Pipfile.lock
+__pypackages__/
+# Ignore Python poetry files
+poetry.lock
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+

@@ -43,10 +43,14 @@ terragrunt/
 │   ├── env.hcl      # variables/dev locals + AWS keys dev (environnement specific)
 │   └── ec2/
 │       └── terragrunt.hcl  # module EC2 + inputs
+│   └── s3/
+│       └── terragrunt.hcl  # module EC2 + inputs
 ├── staging/
 │   ├── terragrunt.hcl
 │   └── ec2/
 │       └── terragrunt.hcl
+│   └── s3/
+│       └── terragrunt.hcl  # module EC2 + inputs
 └── prod/
     ├── env.hcl
     └── ec2/
@@ -54,11 +58,14 @@ terragrunt/
 
 terraform/
 └── ec2/
-    ├── main.tf
-    ├── variables.tf
-    └── outputs.tf
+   ├── main.tf           # EC2 resources (instances, security groups)
+   ├── variables.tf
+   └── outputs.tf
 
-
+└── s3/
+   ├── main.tf           # S3 bucket module (tfstate / app buckets, versioning, lifecycle)
+   ├── variables.tf
+   └── outputs.tf
 ```
 
 ## Getting Started

@@ -1,4 +1,4 @@
-# Terraform EC2 Project
+# Terraform + Terragrunt
 
 **LocalStack**
 LocalStack is a tool that emulates AWS services locally. It is primarily used for development, testing, and integration so you can run against AWS-compatible endpoints without incurring AWS costs or needing an internet connection.
